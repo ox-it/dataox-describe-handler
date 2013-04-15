@@ -5,10 +5,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import uk.ac.ox.it.dataox.vocabulary.SKOS;
 import uk.ac.ox.it.dataox.vocabulary.VOID;
 
-import com.hp.hpl.jena.graph.Node;
-import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.query.Dataset;
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;
@@ -18,11 +17,8 @@ import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.QuerySolutionMap;
 import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.NodeIterator;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
-import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
@@ -31,7 +27,6 @@ import com.hp.hpl.jena.sparql.core.describe.DescribeHandler;
 import com.hp.hpl.jena.sparql.util.Closure;
 import com.hp.hpl.jena.sparql.util.Context;
 import com.hp.hpl.jena.sparql.vocabulary.FOAF;
-import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 import com.hp.hpl.jena.vocabulary.DC;
 import com.hp.hpl.jena.vocabulary.DCTerms;
 import com.hp.hpl.jena.vocabulary.RDF;
@@ -45,14 +40,13 @@ public class DataOxDescribeHandler implements DescribeHandler {
 
 	protected static List<Property> labelProperties = new ArrayList<Property>();
 	static {
-		OntModel ont = ModelFactory.createOntologyModel();
 		labelProperties.add(RDF.type);
 		labelProperties.add(RDFS.label);
 		labelProperties.add(DC.title);
 		labelProperties.add(DCTerms.title);
 		labelProperties.add(FOAF.name);
 		labelProperties.add(RDF.value);
-		labelProperties.add(ont.createProperty("http://www.w3.org/2004/02/skos/core#prefLabel"));
+		labelProperties.add(SKOS.prefLabel);
 	}
 
 	@Override
