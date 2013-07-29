@@ -1,8 +1,5 @@
 #!/usr/bin/make -f
 
-include /usr/share/cdbs/1/rules/debhelper.mk
-#include /usr/share/cdbs/1/maven.mk
-
 PACKAGE              := $(DEB_SOURCE_PACKAGE)
 VERSION              := $(shell echo $(DEB_UPSTREAM_VERSION) | sed -s "s/~alpha/-alpha-/")
 JAVA_HOME            := /usr/lib/jvm/default-java
@@ -12,14 +9,15 @@ JAVA_HOME            := /usr/lib/jvm/default-java
 #DEB_ANT_ARGS         := -Dbasedir=$(realpath .) -Dpackage=$(PACKAGE)
 API_DOCS             := target/api
 
-build:
-	mvn-debian package
+%:
+	dh $@
 
-binary-post-install/lib$(PACKAGE)-java::
-	mh_installpoms -plib$(PACKAGE)-java
-	mh_installjar -plib$(PACKAGE)-java -l pom.xml target/$(PACKAGE)-$(VERSION).jar
+override_dh_install:
+	mvn package
+	mkdir -p debian/liboxford-dataox-describe-handler-java/usr/share/java
+	cp target/*.jar debian/liboxford-dataox-describe-handler-java/usr/share/java/dataox-describe-handler.jar
+	dh_install
 
-
-clean::
-	mh_clean
+#override_dh_clean:
+#	mvn clean
 

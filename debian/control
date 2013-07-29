@@ -3,7 +3,7 @@ Section: java
 Priority: extra
 Maintainer: Alexander Dutton <alexander.dutton@it.ox.ac.uk>
 Build-Depends: debhelper (>= 7.0.50~),
-               maven-debian-helper,
+               maven2,
                default-jdk
 Standards-Version: 3.8.4
 Homepage: https://github.com/ox-it/dataox-describe-handler
@@ -12,6 +12,6 @@ Vcs-Git: git://github.com/ox-it/dataox-describe-handler.git
 Package: liboxford-dataox-describe-handler-java
 Section: java
 Architecture: all
-Depends: ${misc:Depends}, ${maven:Depends}
+Depends: ${misc:Depends}, default-jre
 Description: DESCRIBE handler for data.ox.ac.uk
 
