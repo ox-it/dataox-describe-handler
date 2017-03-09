@@ -6,7 +6,7 @@
   <dependencies>
     <dependency>
       <groupId>org.apache.jena</groupId>
-      <artifactId>jena-arq</artifactId>
+      <artifactId>apache-jena-libs</artifactId>
       <type>pom</type>
       <version>3.2.0</version>
     </dependency>

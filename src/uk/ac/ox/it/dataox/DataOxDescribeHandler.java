@@ -9,8 +9,6 @@ import java.util.List;
 import java.util.Set;
 
 import uk.ac.ox.it.dataox.vocabulary.OV;
-import uk.ac.ox.it.dataox.vocabulary.SKOS;
-import uk.ac.ox.it.dataox.vocabulary.VOID;
 
 import org.apache.jena.graph.Node;
 import org.apache.jena.query.Dataset;
@@ -30,6 +28,8 @@ import org.apache.jena.vocabulary.DC;
 import org.apache.jena.vocabulary.DCTerms;
 import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.RDFS;
+import org.apache.jena.vocabulary.SKOS;
+import org.apache.jena.vocabulary.VOID;
 
 public class DataOxDescribeHandler implements DescribeHandler {
 	protected Model acc;
