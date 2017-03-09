@@ -1,8 +1,8 @@
 package uk.ac.ox.it.dataox.vocabulary;
 
-import com.hp.hpl.jena.ontology.OntModel;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.Property;
+import org.apache.jena.ontology.OntModel;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.Property;
 
 public class VOID {
 	static final OntModel model = ModelFactory.createOntologyModel();
